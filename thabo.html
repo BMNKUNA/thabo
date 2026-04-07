@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg,#0a0f1c,#1b263b);
     color: #fff;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 /* LOADER */
@@ -48,8 +48,14 @@ header {
     background: rgba(13,27,42,0.9);
     backdrop-filter: blur(10px);
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding: 15px 30px;
+}
+
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 nav a {
@@ -121,7 +127,7 @@ footer {text-align:center;padding:20px;background:#0d1b2a;}
 </div>
 
 <header>
-    <h3>Thabo Dlamini CA(SA)</h3>
+    <h3 style="margin:0;">Thabo Dlamini</h3>
     <nav>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
@@ -144,45 +150,58 @@ footer {text-align:center;padding:20px;background:#0d1b2a;}
 
 <section id="services">
 <h2>Services</h2>
+<p>Thabo provides tailored financial solutions designed for South African individuals, entrepreneurs, and growing businesses. His approach is practical, compliant, and focused on long-term sustainability.</p>
 <div class="grid">
-<div class="card"><strong>Financial Statements</strong><br>Preparation aligned with IFRS standards</div>
-<div class="card"><strong>Tax Consulting</strong><br>SARS compliance and strategic tax planning</div>
-<div class="card"><strong>Auditing</strong><br>Internal & external audit support</div>
-<div class="card"><strong>Business Advisory</strong><br>Helping SMEs scale sustainably</div>
+<div class="card"><strong>Financial Statements</strong><br>Preparation of accurate financial statements aligned with IFRS and local regulatory requirements.</div>
+<div class="card"><strong>Tax Consulting</strong><br>Comprehensive SARS compliance, tax return submissions, and strategic planning to minimise liabilities.</div>
+<div class="card"><strong>Auditing Support</strong><br>Internal and external audit preparation, risk identification, and financial control improvements.</div>
+<div class="card"><strong>Business Advisory</strong><br>Guidance for SMEs including budgeting, forecasting, and financial strategy for growth.</div>
 </div>
 </section>
 
 <section id="experience">
-<h2>Experience</h2>
+<h2>Professional Experience</h2>
 <div class="card">
-<p>Thabo has worked with various firms and independent clients across the Eastern Cape and Gauteng. His experience spans financial reporting, budgeting, payroll systems, and compliance advisory.</p>
-<p>He has assisted small businesses in improving cash flow visibility and ensuring full SARS compliance.</p>
+<p>Thabo Dlamini has built a solid reputation working with clients across the Eastern Cape and Gauteng. His experience includes working with accounting firms, independent consulting, and supporting small to medium-sized enterprises.</p>
+<p>Key areas of experience include:</p>
+<ul>
+<li>Preparation and analysis of financial reports</li>
+<li>Payroll management and financial systems implementation</li>
+<li>Cash flow management and budgeting</li>
+<li>Ensuring full compliance with SARS regulations</li>
+<li>Advising startups on financial structuring and growth</li>
+</ul>
 </div>
 </section>
 
 <section id="qualifications">
-<h2>Qualifications</h2>
+<h2>Qualifications & Professional Memberships</h2>
 <div class="card">
-<p>• Chartered Accountant CA(SA)</p>
-<p>• Bachelor of Accounting Science - University of Cape Town</p>
-<p>• SAICA Articles Completed</p>
+<p>• Chartered Accountant – CA(SA)</p>
+<p>• Bachelor of Accounting Science – University of Cape Town</p>
+<p>• Completed SAICA Articles with a reputable audit firm</p>
+<p>• Member of the South African Institute of Chartered Accountants (SAICA)</p>
 </div>
 </section>
 
 <section id="achievements">
 <h2>Achievements & Recognition</h2>
+<p>Thabo’s academic and professional journey reflects a strong commitment to excellence and continuous growth.</p>
 <div class="grid">
 <div class="card">Top Accounting Graduate – University of Cape Town</div>
-<div class="card">Featured in UCT Top Achievers List (Final Year)</div>
-<div class="card">Recognised for Excellence in Financial Reporting</div>
+<div class="card">Featured among UCT Top Achievers (Final Year)</div>
+<div class="card">Awarded for Excellence in Financial Reporting during Articles</div>
+<div class="card">Recognised for outstanding contribution to SME financial advisory</div>
 <div class="card">Community Financial Literacy Volunteer – Eastern Cape</div>
 </div>
 </section>
 
 <section>
-<h2>Personal</h2>
+<h2>Personal Profile</h2>
 <div class="card">
-<p>Outside of work, Thabo enjoys mentoring young students interested in finance, staying active through football, and keeping up with economic trends affecting South Africa.</p>
+<p>Thabo is passionate about empowering individuals and businesses through financial knowledge. He regularly mentors aspiring accountants and contributes to community initiatives focused on financial literacy.</p>
+<p>Outside of his professional work, he enjoys football, reading about economic trends, and staying informed on developments within South Africa’s financial sector.</p>
+<p>He is known for his attention to detail, ethical approach, and ability to simplify complex financial concepts for clients.</p>
 </div>
 </section>
 
@@ -190,8 +209,9 @@ footer {text-align:center;padding:20px;background:#0d1b2a;}
 <h2>Contact</h2>
 <div class="card">
 <p><strong>Phone:</strong> 082 262 4152</p>
-<p><strong>Location:</strong> Matatiele, Eastern Cape</p>
+<p><strong>Location:</strong> Matatiele, Eastern Cape, South Africa</p>
 <p><strong>Email:</strong> info@thabodlamini.co.za</p>
+<p><strong>Availability:</strong> Open for consultations, freelance work, and long-term business partnerships.</p>
 </div>
 </section>
 
@@ -213,7 +233,7 @@ window.addEventListener("load",()=>{
 document.querySelectorAll('nav a').forEach(anchor=>{
 anchor.addEventListener('click',function(e){
 e.preventDefault();
-document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+document.querySelector(this.getAttribute('href')).scrollIntoView();
 });
 });
 </script>
