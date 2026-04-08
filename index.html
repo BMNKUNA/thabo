@@ -6,6 +6,11 @@
 <title>Thabo Dlamini | Chartered Accountant</title>
 
 <style>
+/* Added to ensure no smooth scrolling is inherited */
+html {
+    scroll-behavior: auto !important;
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -45,9 +50,9 @@ header {
     top: 0;
     background: rgba(13,27,42,0.95);
     backdrop-filter: blur(10px);
-    padding: 15px 0; /* Vertical padding only */
+    padding: 15px 0;
     z-index: 1000;
-    height: 60px; /* Defined height */
+    height: 60px;
     display: flex;
     align-items: center;
 }
@@ -65,7 +70,7 @@ header {
     font-size: 30px;
     cursor: pointer;
     display: none;
-    color: #00b4d8; /* Added color for visibility */
+    color: #00b4d8;
     line-height: 1;
 }
 
@@ -89,12 +94,12 @@ nav a:hover {
 /* MOBILE NAV FIXED */
 @media(max-width:768px){
     .menu-toggle {
-        display: block; /* Hamburger now appears */
+        display: block;
     }
 
     nav {
         position: absolute;
-        top: 60px; /* Matches header height */
+        top: 60px;
         left: 0;
         width: 100%;
         background: #0d1b2a;
@@ -278,18 +283,16 @@ window.addEventListener("load",()=>{
     },2000);
 });
 
-// NAV SCROLL
+// INSTANT NAV JUMP (REPLACED SCROLL LOGIC)
+// We remove the event.preventDefault() so the browser jumps instantly to the ID
 document.querySelectorAll('nav a').forEach(anchor=>{
-anchor.addEventListener('click',function(e){
-e.preventDefault();
-const targetId = this.getAttribute('href');
-document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
-});
+    anchor.addEventListener('click',function(e){
+        // No logic needed here for scrolling; the default anchor behavior is instant.
+    });
 });
 
 // HAMBURGER
 function toggleMenu() {
-    // Only toggle if we are in mobile view
     if (window.innerWidth <= 768) {
         document.getElementById("navMenu").classList.toggle("active");
     }
