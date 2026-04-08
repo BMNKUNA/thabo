@@ -43,18 +43,28 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(13,27,42,0.9);
+    background: rgba(13,27,42,0.95);
     backdrop-filter: blur(10px);
-    padding: 15px 30px;
+    padding: 15px 20px;
+    z-index: 1000;
 }
 
-header h3 {
+.logo {
     position: absolute;
-    left: 30px;
+    left: 20px;
     margin: 0;
 }
 
-header nav {
+.menu-toggle {
+    position: absolute;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+    display: none;
+}
+
+/* NAV */
+nav {
     display: flex;
     justify-content: center;
 }
@@ -65,21 +75,47 @@ nav a {
     text-decoration: none;
 }
 
-nav a:hover { color:#00b4d8; }
+nav a:hover {
+    color:#00b4d8;
+}
+
+/* MOBILE NAV */
+@media(max-width:768px){
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #0d1b2a;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
 
 /* SECTIONS */
 section {
     padding: 100px 20px;
     max-width: 1100px;
     margin: auto;
-    animation: fadeIn 0.8s ease;
 }
 
-@keyframes fadeIn {
-    from {opacity:0; transform:translateY(20px);}
-    to {opacity:1; transform:translateY(0);}
-}
-
+/* HERO */
 .hero {
     display: flex;
     flex-direction: column;
@@ -99,7 +135,7 @@ section {
     padding: 12px 25px;
     border-radius: 30px;
     text-decoration: none;
-    margin-top: 10px;
+    margin-top: 15px;
     display: inline-block;
 }
 
@@ -114,23 +150,22 @@ section {
     background: rgba(255,255,255,0.05);
     padding:20px;
     border-radius:15px;
-    transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    background: rgba(0,180,216,0.1);
-}
-
+/* FOOTER */
 footer {
     text-align:center;
     padding:20px;
     background:#0d1b2a;
 }
 
-/* RESPONSIVE */
+/* DESKTOP HERO */
 @media(min-width:768px){
-.hero{flex-direction:row;text-align:left;gap:40px;}
+.hero{
+    flex-direction:row;
+    text-align:left;
+    gap:40px;
+}
 }
 </style>
 </head>
@@ -142,9 +177,13 @@ footer {
     <h1>TD</h1>
 </div>
 
+<!-- HEADER -->
 <header>
-    <h3>Thabo Dlamini</h3>
-    <nav>
+    <h3 class="logo">Thabo Dlamini</h3>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <nav id="navMenu">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
         <a href="#experience">Experience</a>
@@ -156,18 +195,17 @@ footer {
 
 <!-- HERO -->
 <section id="home" class="hero">
-    <img src="profile.jpg">
+    <img src="profile.jpg" alt="Thabo">
     <div>
         <h2>Chartered Accountant | CA(SA)</h2>
         <p>
-            Based in Matatiele, Eastern Cape, Thabo Dlamini is a Chartered Accountant focused on helping individuals and businesses stay compliant, grow sustainably, and make informed financial decisions.
+            Based in Matatiele, Eastern Cape, Thabo Dlamini is a Chartered Accountant focused on helping individuals and businesses stay compliant and grow sustainably.
         </p>
         <p>
             His work is grounded in accuracy, trust, and a practical understanding of the South African financial landscape.
         </p>
 
         <a class="button" onclick="openWhatsAppPopup()">Contact Me</a>
-        <a class="button" href="Thabo_Dlamini_CV.pdf" download>Download CV</a>
     </div>
 </section>
 
@@ -175,10 +213,10 @@ footer {
 <section id="services">
 <h2>Services</h2>
 <div class="grid">
-<div class="card"><strong>Financial Statements</strong><br>Preparation aligned with IFRS and SA regulations.</div>
-<div class="card"><strong>Tax Consulting</strong><br>SARS compliance, returns, and planning.</div>
-<div class="card"><strong>Audit Support</strong><br>Internal controls and audit readiness.</div>
-<div class="card"><strong>Business Advisory</strong><br>Support for SMEs and startups.</div>
+<div class="card">Financial Statements</div>
+<div class="card">Tax Consulting</div>
+<div class="card">Audit Support</div>
+<div class="card">Business Advisory</div>
 </div>
 </section>
 
@@ -186,12 +224,9 @@ footer {
 <section id="experience">
 <h2>Experience</h2>
 <div class="card">
-<p>
-Thabo has worked with accounting firms and independent clients across Eastern Cape and Gauteng, supporting SMEs and entrepreneurs.
-</p>
 <ul>
-<li>Financial reporting & analysis</li>
-<li>Cashflow & budgeting</li>
+<li>Financial reporting</li>
+<li>Budgeting & cashflow</li>
 <li>Payroll systems</li>
 <li>SARS compliance</li>
 </ul>
@@ -204,9 +239,7 @@ Thabo has worked with accounting firms and independent clients across Eastern Ca
 <div class="card">
 <p><strong>University of Cape Town</strong></p>
 <p>Bachelor of Accounting Science</p>
-<p>
-Recognised among top-performing students in final year, demonstrating strong academic consistency and excellence in financial reporting and taxation.
-</p>
+<p>Recognised among top-performing students.</p>
 </div>
 </section>
 
@@ -214,24 +247,9 @@ Recognised among top-performing students in final year, demonstrating strong aca
 <section id="achievements">
 <h2>Achievements</h2>
 <div class="grid">
-<div class="card">Top Accounting Graduate – UCT</div>
-<div class="card">Featured among UCT Top Achievers</div>
-<div class="card">Excellence in Financial Reporting (Articles)</div>
-<div class="card">SME Advisory Recognition</div>
-<div class="card">Community Financial Literacy Work</div>
-</div>
-</section>
-
-<!-- PERSONAL -->
-<section>
-<h2>Personal</h2>
-<div class="card">
-<p>
-Outside of work, Thabo enjoys football, reading on economic trends, and mentoring aspiring accountants.
-</p>
-<p>
-He is known for being detail-oriented, approachable, and committed to simplifying complex financial matters.
-</p>
+<div class="card">Top Accounting Graduate</div>
+<div class="card">UCT Top Achievers</div>
+<div class="card">Financial Reporting Excellence</div>
 </div>
 </section>
 
@@ -250,12 +268,14 @@ He is known for being detail-oriented, approachable, and committed to simplifyin
 
 <!-- SCRIPT -->
 <script>
+// LOADER
 window.addEventListener("load",()=>{
     setTimeout(()=>{
         document.getElementById("loader").style.display="none";
     },2000);
 });
 
+// NAV SCROLL
 document.querySelectorAll('nav a').forEach(anchor=>{
 anchor.addEventListener('click',function(e){
 e.preventDefault();
@@ -263,17 +283,22 @@ document.querySelector(this.getAttribute('href')).scrollIntoView();
 });
 });
 
+// HAMBURGER
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("active");
+}
+
+// WHATSAPP
 function openWhatsAppPopup() {
     document.getElementById("whatsappPopup").style.display = "flex";
 }
-
 function closeWhatsAppPopup() {
     document.getElementById("whatsappPopup").style.display = "none";
 }
 </script>
 
 <!-- WHATSAPP POPUP -->
-<div id="whatsappPopup" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:3000;">
+<div id="whatsappPopup" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;">
 <div style="background:#1b263b;padding:30px;border-radius:15px;text-align:center;">
 <h3>Contact via WhatsApp</h3>
 <a href="https://wa.me/27616235271?text=Hi%20Thabo%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" class="button">
