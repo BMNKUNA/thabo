@@ -144,7 +144,7 @@ footer {text-align:center;padding:20px;background:#0d1b2a;}
         <h2>Chartered Accountant | CA(SA)</h2>
         <p>Based in Matatiele, Eastern Cape, Thabo Dlamini is a results-driven Chartered Accountant known for delivering reliable financial solutions to individuals and growing businesses across South Africa.</p>
         <p>With strong roots in integrity and precision, Thabo brings practical insight into tax, compliance, and financial growth strategies.</p>
-        <a class="button" href="Thabo_Dlamini_CV.pdf" download>Download Resume</a>
+        <a class="button" href="#" onclick="openWhatsAppPopup()">Contact Me</a>
     </div>
 </section>
 
@@ -208,7 +208,7 @@ footer {text-align:center;padding:20px;background:#0d1b2a;}
 <section id="contact">
 <h2>Contact</h2>
 <div class="card">
-<p><strong>Phone:</strong> 082 262 4152</p>
+<p><strong>Phone:</strong> +27 61 623 5271</p>
 <p><strong>Location:</strong> Matatiele, Eastern Cape, South Africa</p>
 <p><strong>Email:</strong> info@thabodlamini.co.za</p>
 <p><strong>Availability:</strong> Open for consultations, freelance work, and long-term business partnerships.</p>
@@ -236,7 +236,53 @@ e.preventDefault();
 document.querySelector(this.getAttribute('href')).scrollIntoView();
 });
 });
-</script>
+function openWhatsAppPopup() {
+    document.getElementById("whatsappPopup").style.display = "flex";
+}
 
+function closeWhatsAppPopup() {
+    document.getElementById("whatsappPopup").style.display = "none";
+}
+</script>
+<!-- WhatsApp Popup -->
+<div id="whatsappPopup" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+">
+    <div style="
+        background: #1b263b;
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        max-width: 300px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    ">
+        <h3 style="margin-bottom:10px;">Contact via WhatsApp</h3>
+        <p style="font-size:14px; opacity:0.8;">Start a conversation with Thabo instantly.</p>
+        
+        <a https://wa.me/27616235271?text=Hi%20Thabo%2C%20I%20would%20like%20to%20enquire%20about%20your%20accounting%20services." target="_blank" class="button" style="display:inline-block; margin-top:15px;">
+            Open WhatsApp
+        </a>
+
+        <br><br>
+
+        <button onclick="closeWhatsAppPopup()" style="
+            background: transparent;
+            color: #aaa;
+            border: none;
+            cursor: pointer;
+        ">
+            Cancel
+        </button>
+    </div>
+</div>
 </body>
 </html>
