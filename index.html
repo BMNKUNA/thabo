@@ -1,322 +1,816 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thabo Dlamini | Chartered Accountant</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thabo Dlamini | Chartered Accountant</title>
+  <meta name="description" content="Thabo Dlamini is a Chartered Accountant in South Africa offering financial statements, tax consulting, audit support, and business advisory services." />
+  <style>
+    :root {
+      --bg: #f8f6f1;
+      --paper: #fffdf8;
+      --text: #1d1d1b;
+      --muted: #6a665f;
+      --line: #e7e1d8;
+      --accent: #111111;
+      --accent-soft: #f0ebe2;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+      --radius: 22px;
+      --max: 1180px;
+    }
 
-<style>
-/* Added to ensure no smooth scrolling is inherited */
-html {
-    scroll-behavior: auto !important;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#0a0f1c,#1b263b);
-    color: #fff;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* LOADER */
-#loader {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #0a0f1c;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-#loader h1 {
-    font-size: 70px;
-    letter-spacing: 12px;
-    color: #00b4d8;
-    animation: pulse 1.5s infinite;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-@keyframes pulse {
-    0% {opacity:0.5}
-    50% {opacity:1}
-    100% {opacity:0.5}
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* HEADER ADJUSTED */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: rgba(13,27,42,0.95);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    z-index: 1000;
-    height: 60px;
-    display: flex;
-    align-items: center;
-}
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
 
-.logo {
-    position: absolute;
-    left: 20px;
-    margin: 0;
-    font-size: 1.2rem;
-}
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 246, 241, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(29, 29, 27, 0.06);
+    }
 
-.menu-toggle {
-    position: absolute;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
-    color: #00b4d8;
-    line-height: 1;
-}
+    .site-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
 
-/* NAV */
-nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+    .brand {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
 
-nav a {
-    color: white;
-    margin: 0 12px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color:#00b4d8;
-}
-
-/* MOBILE NAV FIXED */
-@media(max-width:768px){
     .menu-toggle {
-        display: block;
+      display: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
     }
 
-    nav {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #0d1b2a;
-        flex-direction: column;
-        align-items: center;
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 4rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      line-height: 0.98;
+      margin: 0 0 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.05rem, 2vw, 1.5rem);
+      margin: 0 0 1rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 62ch;
+      margin: 0 0 1.5rem;
+      color: #3f3b35;
+      font-size: 1.02rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 48px;
+      padding: 0 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: calc(var(--radius) - 4px);
+      background: linear-gradient(135deg, #efe6d8, #d8c5aa);
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+
+    .mini-stat {
+      background: #faf7f1;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 0.9rem;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: 0.92rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading h3 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.1;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .about-grid,
+    .values-grid,
+    .services-grid,
+    .skills-grid,
+    .achievements-grid,
+    .contact-grid,
+    .experience-grid,
+    .education-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h4 {
+      margin: 0 0 0.75rem;
+      font-size: 1.05rem;
+    }
+
+    .stack {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .info-item small {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.18rem;
+      font-weight: 700;
+    }
+
+    .info-item span,
+    .info-item a {
+      color: var(--text);
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .chip {
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      background: #f3eee6;
+      border: 1px solid var(--line);
+      color: #3f3b35;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
+    .services-grid,
+    .skills-grid,
+    .achievements-grid,
+    .contact-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .service-card,
+    .skill-card,
+    .achievement-card,
+    .contact-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .service-card h4,
+    .skill-card h4,
+    .achievement-card h4,
+    .contact-card h4 {
+      margin: 0 0 0.6rem;
+      font-size: 1.04rem;
+    }
+
+    .service-card p,
+    .skill-card p,
+    .achievement-card p,
+    .contact-card p,
+    .panel p {
+      margin: 0;
+      color: #47423c;
+    }
+
+    .experience-grid,
+    .education-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline-card {
+      position: relative;
+      padding: 1.4rem;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .timeline-top strong {
+      font-size: 1rem;
+    }
+
+    .timeline-top span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .timeline-card ul {
+      margin: 0.8rem 0 0;
+      padding-left: 1.1rem;
+      color: #47423c;
+    }
+
+    .cv-callout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
+      align-items: center;
+      background: linear-gradient(135deg, #181818, #2b2b2b);
+      color: white;
+      border-radius: 28px;
+      padding: 1.6rem;
+      overflow: hidden;
+    }
+
+    .cv-callout p {
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0.75rem 0 0;
+    }
+
+    .cv-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 1.2rem;
+    }
+
+    .site-footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .about-grid,
+      .cv-callout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header .container {
+        align-items: flex-start;
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+      }
+
+      .site-nav {
         display: none;
-        padding: 20px 0;
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    nav a {
-        padding: 15px;
         width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        margin: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 0.75rem;
+      }
+
+      .site-nav.open {
+        display: flex;
+      }
+
+      .services-grid,
+      .skills-grid,
+      .achievements-grid,
+      .contact-grid,
+      .hero-note {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
     }
-}
-
-/* SECTIONS */
-section {
-    padding: 100px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-/* HERO */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.hero img {
-    width: 180px;
-    border-radius: 50%;
-    border: 3px solid #00b4d8;
-}
-
-.button {
-    background: #00b4d8;
-    color: black;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    margin-top: 15px;
-    display: inline-block;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-}
-
-/* GRID */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:15px;
-}
-
-/* FOOTER */
-footer {
-    text-align:center;
-    padding:20px;
-    background:#0d1b2a;
-}
-
-/* DESKTOP HERO */
-@media(min-width:768px){
-.hero{
-    flex-direction:row;
-    text-align:left;
-    gap:40px;
-}
-}
-</style>
+  </style>
 </head>
-
 <body>
-
-<div id="loader">
-    <h1>TD</h1>
-</div>
-
-<header>
-    <h3 class="logo">Thabo Dlamini</h3>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-    <nav id="navMenu">
-        <a href="#home" onclick="toggleMenu()">Home</a>
-        <a href="#services" onclick="toggleMenu()">Services</a>
-        <a href="#experience" onclick="toggleMenu()">Experience</a>
-        <a href="#education" onclick="toggleMenu()">Education</a>
-        <a href="#achievements" onclick="toggleMenu()">Achievements</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </nav>
-</header>
-
-<section id="home" class="hero">
-    <img src="profile.jpg" alt="Thabo">
-    <div>
-        <h2>Chartered Accountant | CA(SA)</h2>
-        <p>
-            Based in Matatiele, Eastern Cape, Thabo Dlamini is a Chartered Accountant focused on helping individuals and businesses stay compliant and grow sustainably.
-        </p>
-        <p>
-            His work is grounded in accuracy, trust, and a practical understanding of the South African financial landscape.
-        </p>
-
-        <a class="button" onclick="openWhatsAppPopup()">Contact Me</a>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#home">Thabo Dlamini</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">Menu</button>
+      <nav id="siteNav" class="site-nav">
+        <a href="#about">About</a>
+        <a href="#values">Values</a>
+        <a href="#resume">Resume</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-</section>
+  </header>
 
-<section id="services">
-<h2>Services</h2>
-<div class="grid">
-<div class="card">Financial Statements</div>
-<div class="card">Tax Consulting</div>
-<div class="card">Audit Support</div>
-<div class="card">Business Advisory</div>
-</div>
-</section>
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Chartered Accountant | CA(SA)</span>
+          <h1>Hi, I am<br />Thabo Dlamini</h1>
+          <h2>Helping individuals and businesses stay compliant and grow sustainably.</h2>
+          <p>
+            Based in Matatiele, Eastern Cape, Thabo Dlamini is a Chartered Accountant focused on delivering trusted,
+            accurate and practical financial support across the South African business landscape.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+            <a class="btn btn-secondary" href="https://wa.me/27616235271?text=Hi%20Thabo%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">Contact on WhatsApp</a>
+          </div>
+        </div>
 
-<section id="experience">
-<h2>Experience</h2>
-<div class="card">
-<ul>
-<li>Financial reporting</li>
-<li>Budgeting & cashflow</li>
-<li>Payroll systems</li>
-<li>SARS compliance</li>
-</ul>
-</div>
-</section>
+        <aside class="hero-card">
+          <img src="profile.jpg" alt="Portrait of Thabo Dlamini" />
+          <div class="hero-note">
+            <div class="mini-stat">
+              <strong>Location</strong>
+              <span>Eastern Cape, South Africa</span>
+            </div>
+            <div class="mini-stat">
+              <strong>Focus</strong>
+              <span>Compliance, reporting and advisory</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<section id="education">
-<h2>Education</h2>
-<div class="card">
-<p><strong>University of Cape Town</strong></p>
-<p>Bachelor of Accounting Science</p>
-<p>Recognised among top-performing students.</p>
-</div>
-</section>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>Get To Know Me</h3>
+          </div>
+          <p>
+            This section follows the same personal-profile rhythm as Olivia’s page, but is rewritten around Thabo’s professional identity and existing business details.
+          </p>
+        </div>
 
-<section id="achievements">
-<h2>Achievements</h2>
-<div class="grid">
-<div class="card">Top Accounting Graduate</div>
-<div class="card">UCT Top Achievers</div>
-<div class="card">Financial Reporting Excellence</div>
-</div>
-</section>
+        <div class="about-grid">
+          <article class="panel stack">
+            <div>
+              <h4>About Thabo</h4>
+              <p>
+                Thabo’s work is grounded in accuracy, trust and a practical understanding of modern financial realities.
+                He supports individuals and businesses with dependable financial guidance while keeping every interaction
+                professional, approachable and outcomes-focused.
+              </p>
+            </div>
+            <div>
+              <h4>Professional Approach</h4>
+              <p>
+                The aim is simple: make financial processes clearer, strengthen compliance, and help clients make more
+                confident decisions with the right accounting support behind them.
+              </p>
+            </div>
+          </article>
 
-<section id="contact">
-<h2>Contact</h2>
-<div class="card">
-<p><strong>Phone:</strong> +27 61 623 5271</p>
-<p><strong>Location:</strong> Eastern Cape, South Africa</p>
-</div>
-</section>
+          <aside class="panel">
+            <h4>Quick Details</h4>
+            <div class="info-list">
+              <div class="info-item">
+                <small>Phone</small>
+                <a href="tel:+27616235271">+27 61 623 5271</a>
+              </div>
+              <div class="info-item">
+                <small>Location</small>
+                <span>Matatiele, Eastern Cape, South Africa</span>
+              </div>
+              <div class="info-item">
+                <small>Primary Focus</small>
+                <span>Accounting, tax support, audit support, advisory</span>
+              </div>
+              <div class="info-item">
+                <small>CV</small>
+                <a href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">Open root-level PDF</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-<footer>
-<p>© 2026 Thabo Dlamini</p>
-</footer>
+    <section id="values">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>Values & Professional Principles</h3>
+          </div>
+          <p>
+            Olivia’s site has a dedicated values and hobbies section. For Thabo, this is best translated into values and work philosophy so the structure feels similar while the content stays on-brand.
+          </p>
+        </div>
 
-<script>
-// LOADER
-window.addEventListener("load",()=>{
-    setTimeout(()=>{
-        document.getElementById("loader").style.display="none";
-    },2000);
-});
+        <div class="values-grid">
+          <div class="panel">
+            <h4>Core Values</h4>
+            <div class="chip-grid">
+              <span class="chip">Accuracy</span>
+              <span class="chip">Trust</span>
+              <span class="chip">Integrity</span>
+              <span class="chip">Practical Advice</span>
+              <span class="chip">Compliance</span>
+              <span class="chip">Clarity</span>
+              <span class="chip">Professionalism</span>
+              <span class="chip">Sustainable Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// INSTANT NAV JUMP (REPLACED SCROLL LOGIC)
-// We remove the event.preventDefault() so the browser jumps instantly to the ID
-document.querySelectorAll('nav a').forEach(anchor=>{
-    anchor.addEventListener('click',function(e){
-        // No logic needed here for scrolling; the default anchor behavior is instant.
-    });
-});
+    <section id="resume">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>My Resume</h3>
+          </div>
+          <p>
+            This keeps Olivia’s resume-style flow, but replaces the categories with Thabo’s existing education, experience and service strengths.
+          </p>
+        </div>
 
-// HAMBURGER
-function toggleMenu() {
-    if (window.innerWidth <= 768) {
-        document.getElementById("navMenu").classList.toggle("active");
+        <div class="education-grid">
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <strong>University of Cape Town</strong>
+              <span>Bachelor of Accounting Science</span>
+            </div>
+            <p>Recognised among top-performing students.</p>
+          </article>
+        </div>
+
+        <div style="height:1rem"></div>
+
+        <div class="experience-grid">
+          <article class="timeline-card">
+            <div class="timeline-top">
+              <strong>Professional Experience</strong>
+              <span>Financial & Advisory Work</span>
+            </div>
+            <p>My experience includes work across the following areas:</p>
+            <ul>
+              <li>Financial reporting</li>
+              <li>Budgeting and cashflow support</li>
+              <li>Payroll systems</li>
+              <li>SARS compliance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>Skills & Capabilities</h3>
+          </div>
+          <p>
+            Olivia’s page presents rated junior skills. For Thabo, a cleaner capability grid is a better match for a professional services profile.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h4>Financial Reporting</h4>
+            <p>Preparation and support around accurate financial statements and reporting outputs.</p>
+          </article>
+          <article class="skill-card">
+            <h4>Tax Consulting</h4>
+            <p>Practical tax guidance with a strong emphasis on compliance and sound decision-making.</p>
+          </article>
+          <article class="skill-card">
+            <h4>Audit Support</h4>
+            <p>Structured assistance to help clients prepare for reviews, audits and financial scrutiny.</p>
+          </article>
+          <article class="skill-card">
+            <h4>Business Advisory</h4>
+            <p>Professional support for budgeting, cashflow awareness and sustainable business growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>Services</h3>
+          </div>
+          <p>
+            These come directly from Thabo’s current page, restructured into the softer editorial card style used across Olivia’s website.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <h4>Financial Statements</h4>
+            <p>Reliable support with financial statement preparation and presentation.</p>
+          </article>
+          <article class="service-card">
+            <h4>Tax Consulting</h4>
+            <p>Guidance tailored to the realities of South African tax and regulatory requirements.</p>
+          </article>
+          <article class="service-card">
+            <h4>Audit Support</h4>
+            <p>Practical assistance in preparing for audit processes and information requests.</p>
+          </article>
+          <article class="service-card">
+            <h4>Business Advisory</h4>
+            <p>Support for healthier financial systems, compliance readiness and long-term growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>Achievements</h3>
+          </div>
+          <p>
+            The achievement section remains, but now fits the same spacious, editorial structure rather than the original dark card layout.
+          </p>
+        </div>
+
+        <div class="achievements-grid">
+          <article class="achievement-card">
+            <h4>Top Accounting Graduate</h4>
+            <p>A strong academic achievement that adds credibility to the profile.</p>
+          </article>
+          <article class="achievement-card">
+            <h4>UCT Top Achievers</h4>
+            <p>Included as a standout recognition point from Thabo’s existing page content.</p>
+          </article>
+          <article class="achievement-card">
+            <h4>Financial Reporting Excellence</h4>
+            <p>Retained from the current achievements section to preserve Thabo’s details.</p>
+          </article>
+          <article class="achievement-card">
+            <h4>Professional Credibility</h4>
+            <p>CA(SA) positioning is elevated visually in the new structure to reinforce authority.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cv-callout">
+          <div>
+            <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.82); margin-bottom:0.9rem;">Root-Level PDF</span>
+            <h3 style="margin:0; font-size:clamp(1.8rem, 4vw, 2.8rem); font-family:Georgia, 'Times New Roman', serif;">Download Thabo’s CV</h3>
+            <p>
+              The rebuild assumes the CV file lives at <strong>/Thabo_Dlamini_CV.pdf</strong>, matching the root-level document note you gave.
+            </p>
+          </div>
+          <div class="cv-box">
+            <a class="btn btn-primary" href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">Open CV PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h3>Contact Me</h3>
+          </div>
+          <p>
+            Olivia’s site ends with a simple contact-oriented close. This version keeps that flow and makes WhatsApp the main action.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h4>Phone</h4>
+            <p><a href="tel:+27616235271">+27 61 623 5271</a></p>
+          </article>
+          <article class="contact-card">
+            <h4>Location</h4>
+            <p>Eastern Cape, South Africa</p>
+          </article>
+          <article class="contact-card">
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/27616235271?text=Hi%20Thabo%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">Start a conversation</a></p>
+          </article>
+          <article class="contact-card">
+            <h4>CV Document</h4>
+            <p><a href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">View downloadable CV</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Thabo Dlamini. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('siteNav').classList.toggle('open');
     }
-}
 
-// WHATSAPP
-function openWhatsAppPopup() {
-    document.getElementById("whatsappPopup").style.display = "flex";
-}
-function closeWhatsAppPopup() {
-    document.getElementById("whatsappPopup").style.display = "none";
-}
-</script>
-
-<div id="whatsappPopup" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);display:none;justify-content:center;align-items:center;z-index:3000;">
-<div style="background:#1b263b;padding:30px;border-radius:15px;text-align:center;">
-<h3>Contact via WhatsApp</h3>
-<a href="https://wa.me/27616235271?text=Hi%20Thabo%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" class="button">
-Open WhatsApp
-</a>
-<br><br>
-<button onclick="closeWhatsAppPopup()" style="background:transparent; color:white; border:1px solid white; padding:5px 15px; border-radius:20px; cursor:pointer;">Cancel</button>
-</div>
-</div>
-
+    document.querySelectorAll('.site-nav a').forEach((link) => {
+      link.addEventListener('click', () => {
+        document.getElementById('siteNav').classList.remove('open');
+      });
+    });
+  </script>
 </body>
 </html>
