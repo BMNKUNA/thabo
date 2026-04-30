@@ -3,19 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thabo Dlamini | Chartered Accountant</title>
-  <meta name="description" content="I am a Chartered Accountant in South Africa offering financial statements, tax consulting, audit support, and business advisory services." />
+  <title>Thabo Dlamini | Chartered Accountant Portfolio</title>
+  <meta name="description" content="I am Thabo Dlamini, a Chartered Accountant in South Africa. My portfolio shares my accounting work, values, interests, skills, services, professional background and contact details." />
   <style>
     :root {
       --bg: #f8f6f1;
       --paper: #fffdf8;
+      --paper-2: #fbf6ec;
       --text: #1d1d1b;
       --muted: #6a665f;
       --line: #e7e1d8;
       --accent: #111111;
       --accent-soft: #f0ebe2;
-      --shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
-      --radius: 22px;
+      --gold: #b89b62;
+      --sage: #dfe4d2;
+      --clay: #e8d5c2;
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.07);
+      --radius: 24px;
       --max: 1180px;
     }
 
@@ -30,7 +34,10 @@
     body {
       margin: 0;
       font-family: Inter, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(184, 155, 98, 0.12), transparent 34rem),
+        radial-gradient(circle at top right, rgba(223, 228, 210, 0.55), transparent 30rem),
+        var(--bg);
       color: var(--text);
       line-height: 1.65;
     }
@@ -43,6 +50,10 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    p {
+      margin-top: 0;
     }
 
     .container {
@@ -68,11 +79,27 @@
     }
 
     .brand {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.95rem;
+      letter-spacing: 0;
     }
 
     .menu-toggle {
@@ -89,15 +116,15 @@
     .site-nav {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .site-nav a {
       color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.92rem;
+      font-weight: 700;
       transition: color 0.2s ease;
     }
 
@@ -107,56 +134,62 @@
     }
 
     .hero {
-      padding: 4rem 0 2rem;
+      padding: 4.5rem 0 2rem;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 2.5rem;
       align-items: center;
     }
 
     .eyebrow {
       display: inline-block;
-      padding: 0.4rem 0.8rem;
+      padding: 0.42rem 0.85rem;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.76rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1,
+    .section-heading h3,
+    .quote-card strong,
+    .cv-callout h3 {
+      font-family: Georgia, "Times New Roman", serif;
     }
 
     .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.5rem, 6vw, 5.2rem);
-      line-height: 0.98;
+      font-size: clamp(2.55rem, 6vw, 5.35rem);
+      line-height: 0.96;
       margin: 0 0 1rem;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
 
     .hero h2 {
-      font-size: clamp(1.05rem, 2vw, 1.5rem);
-      margin: 0 0 1rem;
+      font-size: clamp(1.08rem, 2vw, 1.5rem);
+      margin: 0 0 1.1rem;
       color: var(--muted);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .hero p {
-      max-width: 62ch;
-      margin: 0 0 1.5rem;
+      max-width: 64ch;
+      margin: 0 0 1rem;
       color: #3f3b35;
-      font-size: 1.02rem;
+      font-size: 1.03rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
-      margin-top: 1.5rem;
+      margin-top: 1.65rem;
     }
 
     .btn {
@@ -168,7 +201,7 @@
       padding: 0 1.2rem;
       border-radius: 999px;
       border: 1px solid var(--accent);
-      font-weight: 700;
+      font-weight: 800;
       transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
     }
 
@@ -189,9 +222,14 @@
     .hero-card {
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 6px);
-      padding: 1.2rem;
+      border-radius: calc(var(--radius) + 8px);
+      padding: 1.1rem;
       box-shadow: var(--shadow);
+      transform: rotate(1deg);
+    }
+
+    .hero-card-inner {
+      transform: rotate(-1deg);
     }
 
     .hero-card img {
@@ -224,11 +262,11 @@
 
     .mini-stat span {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     section {
-      padding: 2.5rem 0;
+      padding: 2.6rem 0;
     }
 
     .section-heading {
@@ -242,24 +280,23 @@
     .section-heading h3 {
       margin: 0;
       font-size: clamp(1.8rem, 3vw, 2.7rem);
-      line-height: 1.1;
-      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
     .section-heading p {
       margin: 0;
       color: var(--muted);
-      max-width: 56ch;
+      max-width: 58ch;
     }
 
     .about-grid,
-    .values-grid,
-    .services-grid,
-    .skills-grid,
-    .achievements-grid,
+    .split-grid,
     .contact-grid,
-    .experience-grid,
-    .education-grid {
+    .card-grid,
+    .resume-grid,
+    .interests-grid,
+    .news-grid {
       display: grid;
       gap: 1rem;
     }
@@ -269,7 +306,19 @@
       align-items: start;
     }
 
-    .panel {
+    .split-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+    }
+
+    .panel,
+    .service-card,
+    .skill-card,
+    .interest-card,
+    .news-card,
+    .contact-card,
+    .timeline-card,
+    .quote-card {
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -277,14 +326,32 @@
       box-shadow: var(--shadow);
     }
 
-    .panel h4 {
-      margin: 0 0 0.75rem;
+    .panel h4,
+    .service-card h4,
+    .skill-card h4,
+    .interest-card h4,
+    .news-card h4,
+    .contact-card h4,
+    .timeline-card h4 {
+      margin: 0 0 0.7rem;
       font-size: 1.05rem;
+    }
+
+    .panel p,
+    .service-card p,
+    .skill-card p,
+    .interest-card p,
+    .news-card p,
+    .contact-card p,
+    .timeline-card p,
+    .quote-card p {
+      margin: 0;
+      color: #47423c;
     }
 
     .stack {
       display: grid;
-      gap: 0.9rem;
+      gap: 0.95rem;
     }
 
     .info-list {
@@ -299,13 +366,13 @@
       font-size: 0.72rem;
       color: var(--muted);
       margin-bottom: 0.18rem;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .info-item span,
     .info-item a {
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       word-break: break-word;
     }
 
@@ -321,57 +388,52 @@
       background: #f3eee6;
       border: 1px solid var(--line);
       color: #3f3b35;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.92rem;
     }
 
-    .services-grid,
-    .skills-grid,
-    .achievements-grid,
-    .contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .chip:nth-child(3n) {
+      background: var(--sage);
     }
 
-    .service-card,
-    .skill-card,
-    .achievement-card,
-    .contact-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.35rem;
-      box-shadow: var(--shadow);
+    .chip:nth-child(4n) {
+      background: var(--clay);
     }
 
-    .service-card h4,
-    .skill-card h4,
-    .achievement-card h4,
-    .contact-card h4 {
-      margin: 0 0 0.6rem;
-      font-size: 1.04rem;
+    .quote-card {
+      background: linear-gradient(135deg, #fffdf8, #f3eee6);
     }
 
-    .service-card p,
-    .skill-card p,
-    .achievement-card p,
-    .contact-card p,
-    .panel p {
-      margin: 0;
-      color: #47423c;
+    .quote-card strong {
+      display: block;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      line-height: 1.12;
+      margin-bottom: 0.9rem;
     }
 
-    .experience-grid,
-    .education-grid {
-      grid-template-columns: 1fr;
+    .card-grid,
+    .interests-grid,
+    .contact-grid,
+    .news-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .resume-grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
     }
 
     .timeline-card {
       position: relative;
-      padding: 1.4rem;
-      border-radius: var(--radius);
-      background: var(--paper);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 5px;
+      background: linear-gradient(var(--gold), transparent);
     }
 
     .timeline-top {
@@ -379,7 +441,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 0.75rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.85rem;
     }
 
     .timeline-top strong {
@@ -388,14 +450,45 @@
 
     .timeline-top span {
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .timeline-card ul {
+    .timeline-card ul,
+    .clean-list {
       margin: 0.8rem 0 0;
       padding-left: 1.1rem;
       color: #47423c;
     }
+
+    .clean-list li + li {
+      margin-top: 0.35rem;
+    }
+
+    .image-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .image-tile {
+      min-height: 150px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.1)),
+        var(--paper-2);
+      padding: 1rem;
+      display: flex;
+      align-items: flex-end;
+      font-weight: 800;
+      color: #3f3b35;
+    }
+
+    .image-tile:nth-child(1) { background-color: #eadfce; }
+    .image-tile:nth-child(2) { background-color: #dfe4d2; }
+    .image-tile:nth-child(3) { background-color: #ead8c8; }
+    .image-tile:nth-child(4) { background-color: #efe9dc; }
 
     .cv-callout {
       display: grid;
@@ -404,9 +497,10 @@
       align-items: center;
       background: linear-gradient(135deg, #181818, #2b2b2b);
       color: white;
-      border-radius: 28px;
-      padding: 1.6rem;
+      border-radius: 30px;
+      padding: 1.7rem;
       overflow: hidden;
+      box-shadow: var(--shadow);
     }
 
     .cv-callout p {
@@ -427,11 +521,29 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 960px) {
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 1.25rem;
+    }
+
+    @media (max-width: 980px) {
       .hero-grid,
       .about-grid,
+      .resume-grid,
       .cv-callout {
         grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .interests-grid,
+      .contact-grid,
+      .news-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -456,11 +568,13 @@
         display: flex;
       }
 
-      .services-grid,
-      .skills-grid,
-      .achievements-grid,
+      .split-grid,
+      .card-grid,
+      .interests-grid,
       .contact-grid,
-      .hero-note {
+      .news-grid,
+      .hero-note,
+      .image-strip {
         grid-template-columns: 1fr;
       }
 
@@ -472,20 +586,33 @@
       .hero {
         padding-top: 2.5rem;
       }
+
+      .hero-card {
+        transform: none;
+      }
+
+      .hero-card-inner {
+        transform: none;
+      }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a class="brand" href="#home">Thabo Dlamini</a>
+      <a class="brand" href="#home" aria-label="Thabo Dlamini home">
+        <span class="brand-mark">TD</span>
+        <span>Thabo Dlamini</span>
+      </a>
       <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleMenu()">Menu</button>
       <nav id="siteNav" class="site-nav">
         <a href="#about">About</a>
-        <a href="#values">Values</a>
-        <a href="#resume">Resume</a>
+        <a href="#interests">Interests</a>
+        <a href="#real-me">Real Me</a>
+        <a href="#background">Background</a>
         <a href="#skills">Skills</a>
         <a href="#services">Services</a>
+        <a href="#insights">Insights</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -497,9 +624,12 @@
         <div>
           <span class="eyebrow">Chartered Accountant | CA(SA)</span>
           <h1>Hi, I am<br />Thabo Dlamini</h1>
-          <h2>Helping individuals and businesses stay compliant and grow sustainably.</h2>
+          <h2>My passion is helping people understand their finances.</h2>
           <p>
-            I am based in Matatiele, Eastern Cape, and work as a Chartered Accountant focused on delivering trusted, accurate and practical financial support across the South African business landscape.
+            I am a Chartered Accountant based in Matatiele, Eastern Cape. My work focuses on helping individuals, professionals and businesses stay compliant, understand their financial position and make better decisions with confidence.
+          </p>
+          <p>
+            I believe accounting should not feel overwhelming. It should feel structured, practical and useful in everyday life and business.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">Download My CV</a>
@@ -507,16 +637,18 @@
           </div>
         </div>
 
-        <aside class="hero-card">
-          <img src="profile.jpg" alt="Portrait of Thabo Dlamini" />
-          <div class="hero-note">
-            <div class="mini-stat">
-              <strong>Location</strong>
-              <span>Eastern Cape, South Africa</span>
-            </div>
-            <div class="mini-stat">
-              <strong>Focus</strong>
-              <span>Compliance, reporting and advisory</span>
+        <aside class="hero-card" aria-label="Thabo profile image and highlights">
+          <div class="hero-card-inner">
+            <img src="profile.jpg" alt="Portrait of Thabo Dlamini" />
+            <div class="hero-note">
+              <div class="mini-stat">
+                <strong>Location</strong>
+                <span>Eastern Cape, South Africa</span>
+              </div>
+              <div class="mini-stat">
+                <strong>Focus</strong>
+                <span>Clarity, compliance and advisory</span>
+              </div>
             </div>
           </div>
         </aside>
@@ -527,9 +659,10 @@
       <div class="container">
         <div class="section-heading">
           <div>
+            <span class="eyebrow">About</span>
             <h3>Get To Know Me</h3>
           </div>
-          
+          <p>A more personal introduction to the way I work, what I value and why I care about making finance easier to understand.</p>
         </div>
 
         <div class="about-grid">
@@ -537,13 +670,19 @@
             <div>
               <h4>About Thabo</h4>
               <p>
-                My work is grounded in accuracy, trust and a practical understanding of modern financial realities. I support individuals and businesses with dependable financial guidance while keeping every interaction professional, approachable and outcomes-focused.
+                I am someone who values structure, accuracy and trust in everything I do. My work in accounting is driven by a simple idea: people should understand their finances, not feel confused by them.
               </p>
             </div>
             <div>
-              <h4>Professional Approach</h4>
+              <h4>Why This Work Matters To Me</h4>
               <p>
-                My aim is simple: to make financial processes clearer, strengthen compliance, and help clients make more confident decisions with the right accounting support behind them.
+                Over time, I have seen how small misunderstandings in finance can grow into bigger challenges. That is why I focus on making things clearer, more organised and easier to manage for the people I work with.
+              </p>
+            </div>
+            <div>
+              <h4>My Approach</h4>
+              <p>
+                Whether I am working with an individual or a business, my goal is always the same: to provide support that is practical, reliable and easy to understand.
               </p>
             </div>
           </article>
@@ -560,8 +699,12 @@
                 <span>Matatiele, Eastern Cape, South Africa</span>
               </div>
               <div class="info-item">
+                <small>Profession</small>
+                <span>Chartered Accountant | CA(SA)</span>
+              </div>
+              <div class="info-item">
                 <small>Primary Focus</small>
-                <span>Accounting, tax support, audit support, advisory</span>
+                <span>Accounting, tax, audit support and advisory</span>
               </div>
               <div class="info-item">
                 <small>CV</small>
@@ -573,66 +716,175 @@
       </div>
     </section>
 
-    <section id="values">
+    <section id="interests">
       <div class="container">
         <div class="section-heading">
           <div>
-            <h3>My Values & Professional Principles</h3>
+            <span class="eyebrow">Personal</span>
+            <h3>Hobbies & Interests</h3>
           </div>
-          
+          <p>This section keeps the site from feeling like a plain CV. It gives people a clearer sense of the person behind the profession.</p>
         </div>
 
-        <div class="values-grid">
-          <div class="panel">
-            <h4>Core Values</h4>
+        <div class="split-grid">
+          <article class="panel">
+            <h4>Values</h4>
+            <p style="margin-bottom: 1rem;">The way I work is shaped by a few principles I take seriously.</p>
             <div class="chip-grid">
               <span class="chip">Accuracy</span>
-              <span class="chip">Trust</span>
               <span class="chip">Integrity</span>
-              <span class="chip">Practical Advice</span>
-              <span class="chip">Compliance</span>
+              <span class="chip">Trust</span>
               <span class="chip">Clarity</span>
               <span class="chip">Professionalism</span>
-              <span class="chip">Sustainable Growth</span>
+              <span class="chip">Discipline</span>
+              <span class="chip">Accountability</span>
+              <span class="chip">Practical Thinking</span>
+              <span class="chip">Consistency</span>
+              <span class="chip">Long-Term Value</span>
             </div>
-          </div>
+          </article>
+
+          <article class="panel">
+            <h4>Hobbies</h4>
+            <p style="margin-bottom: 1rem;">Outside of my professional work, I value balance, learning and meaningful connection.</p>
+            <div class="chip-grid">
+              <span class="chip">Reading</span>
+              <span class="chip">Business Content</span>
+              <span class="chip">Family Time</span>
+              <span class="chip">Staying Active</span>
+              <span class="chip">Community Growth</span>
+              <span class="chip">Learning Systems</span>
+              <span class="chip">Mentoring</span>
+              <span class="chip">Financial Education</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="image-strip" aria-label="Interest highlight tiles">
+          <div class="image-tile">Financial clarity</div>
+          <div class="image-tile">Small business growth</div>
+          <div class="image-tile">Community impact</div>
+          <div class="image-tile">Continuous learning</div>
         </div>
       </div>
     </section>
 
-    <section id="resume">
+    <section id="real-me">
       <div class="container">
         <div class="section-heading">
           <div>
-            <h3>My Resume</h3>
+            <span class="eyebrow">Personality</span>
+            <h3>Real Me Un-Plugged</h3>
           </div>
-          
+          <p>A grounded personal section, inspired by Olivia’s more open portfolio style, but written in a way that still suits Thabo’s profession.</p>
         </div>
 
-        <div class="education-grid">
+        <div class="split-grid">
+          <article class="quote-card">
+            <strong>“For me, accounting is not just about numbers. It is about helping people feel more in control of their situation.”</strong>
+            <p>
+              Outside of work, I am a calm and focused person who values doing things properly. I take a thoughtful approach to both my professional and personal life.
+            </p>
+          </article>
+
+          <article class="panel stack">
+            <div>
+              <h4>How I See My Work</h4>
+              <p>
+                I believe that being reliable, patient and consistent is just as important as technical skill. People should feel comfortable asking questions and confident in the guidance they receive.
+              </p>
+            </div>
+            <div>
+              <h4>What Matters To Me</h4>
+              <p>
+                I care about leaving people with more clarity than they had before. Good financial support should reduce stress, not add to it.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="passions">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Drive</span>
+            <h3>Passions</h3>
+          </div>
+          <p>These are the themes that guide the kind of work I enjoy and the impact I want my work to have.</p>
+        </div>
+
+        <div class="interests-grid">
+          <article class="interest-card">
+            <h4>Financial Clarity</h4>
+            <p>I enjoy making financial information easier to understand and more useful for real decisions.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Tax & Compliance</h4>
+            <p>I care about helping people navigate their responsibilities without unnecessary stress.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Small Business Support</h4>
+            <p>I am interested in helping businesses build stronger financial foundations.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Ethical Practice</h4>
+            <p>I believe finance should be handled with honesty, care and accountability.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Continuous Learning</h4>
+            <p>I value growth through education, experience and exposure to better systems.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Confidence Through Knowledge</h4>
+            <p>I want people to feel more confident because they understand the numbers in front of them.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="background">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Journey</span>
+            <h3>My Background</h3>
+          </div>
+          <p>This keeps the important CV information, but presents it as part of a story rather than a plain resume list.</p>
+        </div>
+
+        <div class="resume-grid">
           <article class="timeline-card">
             <div class="timeline-top">
               <strong>University of Cape Town</strong>
               <span>Bachelor of Accounting Science</span>
             </div>
-            <p>Recognised among top-performing students.</p>
+            <p>
+              I completed my Bachelor of Accounting Science at the University of Cape Town, where I built a strong academic foundation in accounting and finance.
+            </p>
+            <ul>
+              <li>Accounting and financial reporting</li>
+              <li>Tax and compliance fundamentals</li>
+              <li>Business, finance and professional discipline</li>
+              <li>Recognised among top-performing students</li>
+            </ul>
           </article>
-        </div>
 
-        <div style="height:1rem"></div>
-
-        <div class="experience-grid">
           <article class="timeline-card">
             <div class="timeline-top">
               <strong>Professional Experience</strong>
               <span>Financial & Advisory Work</span>
             </div>
-            <p>I have experience across the following areas:</p>
+            <p>
+              My training and experience have given me exposure to financial reporting, budgeting, payroll systems, SARS compliance and advisory work.
+            </p>
             <ul>
-              <li>Financial reporting</li>
-              <li>Budgeting and cashflow support</li>
-              <li>Payroll systems</li>
-              <li>SARS compliance</li>
+              <li>Financial statements and reporting support</li>
+              <li>Budgeting and cashflow awareness</li>
+              <li>Payroll systems and processes</li>
+              <li>SARS compliance and tax-related support</li>
+              <li>Practical business advisory and financial organisation</li>
             </ul>
           </article>
         </div>
@@ -643,27 +895,36 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <h3>My Skills & Capabilities</h3>
+            <span class="eyebrow">Capabilities</span>
+            <h3>My Skills</h3>
           </div>
-          
+          <p>My skills are built around making financial information accurate, organised and genuinely helpful.</p>
         </div>
 
-        <div class="skills-grid">
+        <div class="card-grid">
           <article class="skill-card">
             <h4>Financial Reporting</h4>
-            <p>I provide preparation and support around accurate financial statements and reporting outputs.</p>
+            <p>I prepare and support financial reports that clearly reflect the position of a business or individual.</p>
           </article>
           <article class="skill-card">
             <h4>Tax Consulting</h4>
-            <p>I offer practical tax guidance with a strong emphasis on compliance and sound decision-making.</p>
+            <p>I assist with understanding tax responsibilities and staying compliant with South African regulations.</p>
           </article>
           <article class="skill-card">
             <h4>Audit Support</h4>
-            <p>I provide structured assistance to help clients prepare for reviews, audits and financial scrutiny.</p>
+            <p>I help clients prepare for audits by organising financial information and supporting documentation.</p>
           </article>
           <article class="skill-card">
             <h4>Business Advisory</h4>
-            <p>I support businesses with budgeting, cashflow awareness and sustainable growth.</p>
+            <p>I provide practical financial guidance to support better decision-making and long-term growth.</p>
+          </article>
+          <article class="skill-card">
+            <h4>Communication</h4>
+            <p>I explain financial matters in a way that is simple, clear and useful.</p>
+          </article>
+          <article class="skill-card">
+            <h4>Problem Solving</h4>
+            <p>I approach financial challenges with a structured and practical mindset.</p>
           </article>
         </div>
       </div>
@@ -673,69 +934,129 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <h3>My Services</h3>
+            <span class="eyebrow">Services</span>
+            <h3>How I Can Help</h3>
           </div>
-          
+          <p>If you need financial support that is professional, clear and practical, these are the areas where I can assist.</p>
         </div>
 
-        <div class="services-grid">
+        <div class="card-grid">
           <article class="service-card">
             <h4>Financial Statements</h4>
-            <p>I provide reliable support with financial statement preparation and presentation.</p>
+            <p>Reliable preparation and support with financial statement presentation and reporting.</p>
           </article>
           <article class="service-card">
             <h4>Tax Consulting</h4>
-            <p>I offer guidance tailored to the realities of South African tax and regulatory requirements.</p>
+            <p>Guidance tailored to South African tax and regulatory requirements.</p>
           </article>
           <article class="service-card">
-            <h4>Audit Support</h4>
-            <p>I assist with preparing for audit processes and information requests.</p>
+            <h4>SARS Compliance</h4>
+            <p>Support with tax-related responsibilities and staying aligned with requirements.</p>
+          </article>
+          <article class="service-card">
+            <h4>Audit Preparation</h4>
+            <p>Assistance with organising documents, records and information for audit processes.</p>
+          </article>
+          <article class="service-card">
+            <h4>Payroll Support</h4>
+            <p>Structured support around payroll systems, records and financial processes.</p>
           </article>
           <article class="service-card">
             <h4>Business Advisory</h4>
-            <p>I support healthier financial systems, compliance readiness and long-term growth.</p>
+            <p>Practical guidance around budgeting, cashflow awareness and sustainable growth.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="achievements">
+    <section id="roles">
       <div class="container">
         <div class="section-heading">
           <div>
-            <h3>My Achievements</h3>
+            <span class="eyebrow">Professional Interests</span>
+            <h3>Areas That Interest Me</h3>
           </div>
-          
+          <p>Olivia’s site includes future-facing roles that interest her. For Thabo, this becomes professional areas he enjoys and wants to keep building in.</p>
         </div>
 
-        <div class="achievements-grid">
-          <article class="achievement-card">
-            <h4>Top Accounting Graduate</h4>
-            <p>One of my key academic achievements.</p>
+        <div class="interests-grid">
+          <article class="interest-card">
+            <h4>Small Business Advisory</h4>
+            <p>I am interested in helping small businesses create stronger financial systems and clearer reporting habits.</p>
           </article>
-          <article class="achievement-card">
-            <h4>UCT Top Achievers</h4>
-            <p>Recognised as a standout academic achievement.</p>
+          <article class="interest-card">
+            <h4>Tax & Compliance Support</h4>
+            <p>I enjoy helping clients understand what is required of them and how to stay compliant.</p>
           </article>
-          <article class="achievement-card">
-            <h4>Financial Reporting Excellence</h4>
-            <p>A reflection of my strength in financial reporting.</p>
+          <article class="interest-card">
+            <h4>Financial Education</h4>
+            <p>I believe more people would make better decisions if financial concepts were explained more clearly.</p>
           </article>
-          <article class="achievement-card">
-            <h4>Professional Credibility</h4>
-            <p>My CA(SA) designation reflects my professional credibility and training.</p>
+          <article class="interest-card">
+            <h4>Business Growth</h4>
+            <p>I am interested in supporting businesses that want to grow in a responsible and sustainable way.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Reporting Systems</h4>
+            <p>I value systems that make financial information easier to track, review and use.</p>
+          </article>
+          <article class="interest-card">
+            <h4>Community Impact</h4>
+            <p>I am motivated by work that helps people, families and businesses become more financially confident.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="insights">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Writing</span>
+            <h3>My Insights</h3>
+          </div>
+          <p>A simple article-style section to mirror Olivia’s news area, while keeping Thabo’s content professional and relevant.</p>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card">
+            <h4>Why Good Accounting Matters for Small Businesses</h4>
+            <p>Clear financial records make it easier to plan, grow and avoid unnecessary risk.</p>
+            <ul class="clean-list">
+              <li>Better visibility</li>
+              <li>Cleaner decisions</li>
+              <li>Stronger planning</li>
+            </ul>
+          </article>
+          <article class="news-card">
+            <h4>Understanding SARS Compliance</h4>
+            <p>Compliance does not need to feel overwhelming when systems and records are in place.</p>
+            <ul class="clean-list">
+              <li>Know your obligations</li>
+              <li>Keep records organised</li>
+              <li>Ask questions early</li>
+            </ul>
+          </article>
+          <article class="news-card">
+            <h4>Making Financial Information Useful</h4>
+            <p>Financial reports should help you make decisions, not only meet requirements.</p>
+            <ul class="clean-list">
+              <li>Understand the story</li>
+              <li>Track the details</li>
+              <li>Plan with confidence</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
       <div class="container">
         <div class="cv-callout">
           <div>
-            <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.82); margin-bottom:0.9rem;">Root-Level PDF</span>
-            <h3 style="margin:0; font-size:clamp(1.8rem, 4vw, 2.8rem); font-family:Georgia, 'Times New Roman', serif;">Download Thabo’s CV</h3>
-            <p>You can download my CV for a detailed overview of my qualifications and experience.</p>
+            <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.82); margin-bottom:0.9rem;">Downloadable CV</span>
+            <h3 style="margin:0; font-size:clamp(1.8rem, 4vw, 2.8rem);">Download Thabo’s CV</h3>
+            <p>You can download my CV for a more detailed overview of my qualifications, experience and professional background.</p>
           </div>
           <div class="cv-box">
             <a class="btn btn-primary" href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">View My CV</a>
@@ -748,9 +1069,10 @@
       <div class="container">
         <div class="section-heading">
           <div>
-            <h3>Get In Touch</h3>
+            <span class="eyebrow">Contact</span>
+            <h3>Contact Me</h3>
           </div>
-          <p>If you would like to get in touch or discuss how I can assist, feel free to reach out to me directly.</p>
+          <p>If you would like to talk about your accounting, tax, reporting or business needs, you are welcome to reach out directly.</p>
         </div>
 
         <div class="contact-grid">
@@ -760,7 +1082,7 @@
           </article>
           <article class="contact-card">
             <h4>Location</h4>
-            <p>Eastern Cape, South Africa</p>
+            <p>Matatiele, Eastern Cape, South Africa</p>
           </article>
           <article class="contact-card">
             <h4>WhatsApp</h4>
@@ -770,14 +1092,23 @@
             <h4>CV Document</h4>
             <p><a href="/Thabo_Dlamini_CV.pdf" target="_blank" rel="noopener">View downloadable CV</a></p>
           </article>
+          <article class="contact-card">
+            <h4>Professional Focus</h4>
+            <p>Financial reporting, tax, compliance, audit support and advisory.</p>
+          </article>
+          <article class="contact-card">
+            <h4>Availability</h4>
+            <p>Reach out directly to discuss your needs and the support required.</p>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-grid">
       <p>© 2026 Thabo Dlamini. All rights reserved.</p>
+      <p>Built as a personal portfolio for accounting, advisory and financial clarity.</p>
     </div>
   </footer>
 
@@ -791,6 +1122,29 @@
         document.getElementById('siteNav').classList.remove('open');
       });
     });
+
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.site-nav a');
+
+    function setActiveLink() {
+      let current = '';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 120;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink();
   </script>
 </body>
 </html>
